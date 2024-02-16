@@ -1,10 +1,20 @@
-import React from 'react';
+import React, { Suspense } from 'react';
+import { Routes, Route, Link } from 'react-router-dom';
 import './index.scss';
+import { AboutPageLazy } from './pages/AboutPage/AboutPage.lazy';
+import { MainPageLazy } from './pages/MainPage/MainPage.lazy';
 
 const App = () => {
   return (
     <div className="app">
-      <h1></h1>
+      <Link to={'/about'}>About</Link>
+      <Link to={'/'}>Main</Link>
+      <Suspense fallback={<div>...</div>}>
+        <Routes>
+          <Route path={'/about'} element={<AboutPageLazy />}/>
+          <Route path={'/'} element={<MainPageLazy />} />
+        </Routes>
+      </Suspense>
     </div>
   );
 };

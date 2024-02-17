@@ -3,8 +3,8 @@ import { Link, Route, Routes } from 'react-router-dom';
 import './styles/index.scss';
 import { AboutPage } from '@/pages/AboutPage';
 import { MainPage } from '@/pages/MainPage';
-import { useTheme } from './theme';
-import { classNames } from '@/shared/lib';
+import { useTheme } from './providers/theme/lib/useTheme';
+import { classNames } from '@/shared';
 
 const App = () => {
   const { theme, toggleTheme } = useTheme();

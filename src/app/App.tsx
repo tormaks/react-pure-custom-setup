@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import './styles/index.scss';
 import { AppRouter } from './providers/router';
 import { useTheme } from './providers/theme/lib/useTheme';
-import { classNames } from '@/shared/lib';
+import { classNames } from '@/shared/lib/classNames';
 import { Navbar } from '@/widgets/Navbar';
 import { Sidebar } from '@/widgets/Sidebar';
 
@@ -11,11 +11,13 @@ const App = () => {
 
   return (
     <div className={classNames('app', {}, [theme])}>
-      <Navbar />
-      <div className="content-page">
-        <Sidebar />
-        <AppRouter />
-      </div>
+      <Suspense fallback={<div>loading...</div>}>
+        <Navbar />
+        <div className="content-page">
+          <Sidebar />
+          <AppRouter />
+        </div>
+      </Suspense>
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { classNames } from '@/shared/lib';
+import { classNames } from '@/shared/lib/classNames';
 import cls from './ThemeSwitcher.module.scss';
 import { ThemeModel, useTheme } from '@/app/providers/theme';
 import LightThemeIcon from '../../assets/icons/lightThemeIcon.svg';

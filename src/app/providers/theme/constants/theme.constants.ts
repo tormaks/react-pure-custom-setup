@@ -1,4 +1,5 @@
 import { createContext } from 'react';
+
 import { ThemeContextProps, ThemeModel } from '../model/theme.model';
 
 export const ThemeContext = createContext<ThemeContextProps>({});

@@ -1,7 +1,7 @@
 import React, { FC, useMemo, useState } from 'react';
+
 import { defaultTheme, ThemeContext } from '../constants/theme.constants';
 import { ThemeModel } from '../model/theme.model';
-
 
 const ThemeProvider: FC = ({ children }) => {
   const [theme, setTheme] = useState<ThemeModel>(defaultTheme);
@@ -15,7 +15,7 @@ const ThemeProvider: FC = ({ children }) => {
     <ThemeContext.Provider value={defaultProviderValue}>
       {children}
     </ThemeContext.Provider>
-  )
-}
+  );
+};
 
 export default ThemeProvider;

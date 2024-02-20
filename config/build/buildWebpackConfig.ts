@@ -1,9 +1,10 @@
 import webpack from 'webpack';
-import { buildPlugins } from './buildPlugins';
+
+import { buildDevServer } from './buildDevServer';
 import { buildLoaders } from './buildLoaders';
+import { buildPlugins } from './buildPlugins';
 import { buildResolvers } from './buildResolvers';
 import { BuildOptions } from './types/config';
-import { buildDevServer } from './buildDevServer';
 
 export const buildWebpackConfig = (options: BuildOptions): webpack.Configuration => {
   const { mode, paths, isDev } = options;
@@ -12,7 +13,7 @@ export const buildWebpackConfig = (options: BuildOptions): webpack.Configuration
     mode,
     entry: paths.entry,
     output: {
-      filename: "[name].[contenthash:8].js",
+      filename: '[name].[contenthash:8].js',
       path: paths.build,
       clean: true,
     },
@@ -23,5 +24,5 @@ export const buildWebpackConfig = (options: BuildOptions): webpack.Configuration
     resolve: buildResolvers(options),
     devServer: isDev ? buildDevServer(options) : undefined,
     devtool: isDev ? 'inline-source-map' : undefined,
-  }
+  };
 };

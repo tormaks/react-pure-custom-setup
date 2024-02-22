@@ -1,5 +1,9 @@
-export { default as ThemeProvider } from './ui/ThemeProvider';
+import { Theme } from './lib/ThemeContext';
+import { useTheme } from './lib/useTheme';
+import ThemeProvider from './ui/ThemeProvider';
 
-export { useTheme } from './lib/useTheme';
-
-export { ThemeModel } from './model/theme.model';
+export {
+  ThemeProvider,
+  useTheme,
+  Theme,
+};

@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { classNames } from '@/shared/lib/classNames';
-import { AppButton, ThemeAppButton } from '../AppButton';
+import { AppButton, ThemeAppButton } from '@/shared/ui/AppButton';
 
 interface LangSwitcherProps {
   className?: string;

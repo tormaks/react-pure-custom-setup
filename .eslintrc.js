@@ -48,7 +48,7 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'import/no-extraneous-dependencies': 'off',
     'no-underscore-dangle': 'off',
-    'i18next/no-literal-string': ['warn', { markupOnly: true, onlyAttribute: [''] }],
+    'i18next/no-literal-string': ['error', { markupOnly: true, onlyAttribute: [''] }],
     'import/order': ['error',
       {
         'newlines-between': 'always',

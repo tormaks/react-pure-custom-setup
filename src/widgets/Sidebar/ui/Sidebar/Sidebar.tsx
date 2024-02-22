@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
+import { LangSwitcher } from '@/features/LangSwitcher';
+import { ThemeSwitcher } from '@/features/ThemeSwitcher';
 import { classNames } from '@/shared/lib/classNames';
-import { LangSwitcher } from '@/shared/ui/LangSwitcher';
-import { ThemeSwitcher } from '@/shared/ui/ThemeSwitcher';
 import cls from './Sidebar.module.scss';
 
 interface SidebarProps {
@@ -18,8 +18,9 @@ export const Sidebar: React.FC<SidebarProps> = ({ className }) => {
 
   return (
     <div
-      className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}
+      className={classNames(cls.component, { [cls.collapsed]: collapsed }, [className])}
     >
+      {/* eslint-disable-next-line i18next/no-literal-string */}
       <button onClick={onToggle}>toggle</button>
       <div className={cls.switchers}>
         <ThemeSwitcher />

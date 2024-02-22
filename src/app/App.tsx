@@ -12,9 +12,8 @@ function App() {
 
   return (
     <div className={classNames('app', {}, [theme])}>
-      <Suspense fallback={<div>loading...</div>}>
+      <Suspense fallback="">
         <Navbar />
-        fsdffsdfsdf
         <div className="content-page">
           <Sidebar />
           <AppRouter />

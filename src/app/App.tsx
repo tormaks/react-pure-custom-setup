@@ -3,6 +3,7 @@ import React, { Suspense, useEffect } from 'react';
 import { Navbar } from '@/widgets/Navbar';
 import { Sidebar } from '@/widgets/Sidebar';
 import { classNames } from '@/shared/lib/classNames';
+import { Loader } from '@/shared/ui/Loader';
 import { AppRouter } from './providers/router';
 import { useTheme } from './providers/theme';
 import './styles/index.scss';
@@ -16,7 +17,7 @@ function App() {
 
   return (
     <div className={classNames('app', {})}>
-      <Suspense fallback="">
+      <Suspense fallback={<Loader />}>
         <Navbar />
         <div className="content-page">
           <Sidebar />

@@ -23,7 +23,7 @@ export const AppButton: React.FC<AppButtonProps> = (props) => {
   return (
     <button
       {...otherProps}
-      className={classNames(cls.AppButton, {}, [cls[theme]])}
+      className={classNames(cls.component, {}, [cls[theme]])}
     >
       {children}
     </button>

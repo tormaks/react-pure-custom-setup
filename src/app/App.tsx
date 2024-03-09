@@ -1,17 +1,21 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, useEffect } from 'react';
 
 import { Navbar } from '@/widgets/Navbar';
 import { Sidebar } from '@/widgets/Sidebar';
 import { classNames } from '@/shared/lib/classNames';
 import { AppRouter } from './providers/router';
-import { useTheme } from './providers/theme/lib/useTheme';
+import { useTheme } from './providers/theme';
 import './styles/index.scss';
 
 function App() {
   const { theme } = useTheme();
 
+  useEffect(() => {
+    document.body.setAttribute('data-theme', theme);
+  }, [theme]);
+
   return (
-    <div className={classNames('app', {}, [theme])}>
+    <div className={classNames('app', {})}>
       <Suspense fallback="">
         <Navbar />
         <div className="content-page">

@@ -6,4 +6,7 @@ export const buildDevServer = (options: BuildOptions): DevServerConfiguration =>
   port: options.port,
   historyApiFallback: true,
   hot: true,
+  client: {
+    overlay: false,
+  },
 });

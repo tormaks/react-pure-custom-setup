@@ -1,0 +1,26 @@
+import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+
+import { AppButton } from '@/shared/ui/AppButton';
+
+export const BugButton: React.FC = () => {
+  const { t } = useTranslation();
+
+  const [error, setError] = useState<undefined | boolean>(undefined);
+
+  const onThrow = () => {
+    setError(true);
+  };
+
+  useEffect(() => {
+    if (error) {
+      throw new Error();
+    }
+  }, [error]);
+
+  return (
+    <AppButton onClick={onThrow}>
+      {t('Воспроизвести ошибку')}
+    </AppButton>
+  );
+};

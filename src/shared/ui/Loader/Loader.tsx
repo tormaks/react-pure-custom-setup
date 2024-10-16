@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { classNames } from '@/shared/lib/classNames';
-import cls from './Loader.module.scss';
+import './Loader.scss';
 
 interface LoaderProps {
   className?: string;
@@ -9,7 +9,7 @@ interface LoaderProps {
 
 export const Loader: React.FC<LoaderProps> = ({ className }) => (
   <div
-    className={classNames(cls.component, {}, [className])}
+    className={classNames('loader', {}, [className])}
   >
     <div />
     <div />

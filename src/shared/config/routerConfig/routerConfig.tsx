@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { RouteProps } from 'react-router-dom';
 
 import { AboutPage } from '@/pages/AboutPage';

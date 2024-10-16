@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-props-no-spreading */
+/* eslint-disable no-unused-vars */
 import React, { ButtonHTMLAttributes } from 'react';
 
 import { classNames } from '@/shared/lib/classNames';
@@ -23,6 +25,7 @@ export const AppButton: React.FC<AppButtonProps> = (props) => {
   return (
     <button
       {...otherProps}
+      type="button"
       className={classNames(cls.component, {}, [cls[theme]])}
     >
       {children}

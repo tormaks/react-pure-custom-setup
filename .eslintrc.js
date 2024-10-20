@@ -45,9 +45,9 @@ module.exports = {
     'no-shadow': 'off',
     'import/no-unresolved': 'off',
     'react/react-in-jsx-scope': 'off',
-    'import/no-extraneous-dependencies': 'warn',
+    'import/no-extraneous-dependencies': 'off',
     'no-underscore-dangle': 'off',
-    'i18next/no-literal-string': ['warn', { markupOnly: true, onlyAttribute: [''] }],
+    'i18next/no-literal-string': ['warn', { markupOnly: true, ignoreAttribute: ['data-testid'] }],
     'no-console': 'off',
     'import/order': ['error',
       {
@@ -112,4 +112,12 @@ module.exports = {
   globals: {
     __IS_DEV__: true,
   },
+  overrides: [
+    {
+      files: ['**/src/**/*.test.{ts,tsx}'],
+      rules: {
+        'i18next/no-literal-string': ['off'],
+      },
+    },
+  ],
 };

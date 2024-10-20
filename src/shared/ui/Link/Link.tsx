@@ -29,7 +29,7 @@ export const Link: React.FC<LinkProps> = (props) => {
     <RouterLink
       {...otherProps}
       to={to}
-      className={classNames(cls.component, {}, [className, cls[theme]])}
+      className={classNames(cls.component, {}, [className as string, cls[theme]])}
     >
       {children}
     </RouterLink>

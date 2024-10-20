@@ -19,7 +19,7 @@ export const PageError: React.FC<PageErrorProps> = ({ className }) => {
 
   return (
     <div
-      className={classNames(cls.component, {}, [className])}
+      className={classNames(cls.component, {}, [className as string])}
     >
       <p>{t('Что-то пошло не так!')}</p>
       <Button onClick={reloadPage}>

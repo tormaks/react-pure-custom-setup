@@ -1,3 +1,5 @@
+import path from 'path';
+
 export default {
   clearMocks: true,
   testEnvironment: 'jsdom',
@@ -8,6 +10,8 @@ export default {
     'node_modules',
   ],
   moduleNameMapper: {
+    '\\.s?css$': 'identity-obj-proxy',
+    '\\.svg': path.resolve(__dirname, 'fileMock.tsx'),
     '@/(.*)': '<rootDir>/src/$1',
   },
   moduleFileExtensions: [
@@ -19,6 +23,7 @@ export default {
     'node',
   ],
   rootDir: '../../',
+  setupFilesAfterEnv: ['<rootDir>/config/jest/setupTests.ts'],
   testMatch: [
     '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)',
   ],

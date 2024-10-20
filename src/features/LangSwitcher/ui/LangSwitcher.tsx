@@ -11,15 +11,15 @@ interface LangSwitcherProps {
 export const LangSwitcher: React.FC<LangSwitcherProps> = ({ className }) => {
   const { t, i18n } = useTranslation();
 
-  const onToggle = () => {
-    i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru');
+  const onToggle = async () => {
+    await i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru');
   };
 
   return (
     <Button
       theme={ThemeButton.CLEAR}
       onClick={onToggle}
-      className={classNames('', {}, [className])}
+      className={classNames('', {}, [className as string])}
     >
       {t('Язык')}
     </Button>

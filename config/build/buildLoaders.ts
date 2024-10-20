@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import webpack from 'webpack';
 

@@ -12,7 +12,9 @@ function App() {
   const { theme } = useTheme();
 
   useEffect(() => {
-    document.body.setAttribute('data-theme', theme);
+    if (theme) {
+      document.body.setAttribute('data-theme', theme);
+    }
   }, [theme]);
 
   return (

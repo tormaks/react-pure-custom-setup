@@ -9,7 +9,7 @@ interface LoaderProps {
 
 export const Loader: React.FC<LoaderProps> = ({ className }) => (
   <div
-    className={classNames('loader', {}, [className])}
+    className={classNames('loader', {}, [className as string])}
   >
     <div />
     <div />

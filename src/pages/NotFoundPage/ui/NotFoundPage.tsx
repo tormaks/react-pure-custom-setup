@@ -13,7 +13,7 @@ export const NotFoundPage: React.FC<NotFoundPageProps> = ({ className }) => {
 
   return (
     <div
-      className={classNames(cls.component, {}, [className])}
+      className={classNames(cls.component, {}, [className as string])}
     >
       {t('Страница не найдена')}
     </div>

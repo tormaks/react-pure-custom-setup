@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-globals */
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -13,7 +14,6 @@ export const PageError: React.FC<PageErrorProps> = ({ className }) => {
   const { t } = useTranslation();
 
   const reloadPage = () => {
-    // eslint-disable-next-line no-restricted-globals
     location.reload();
   };
 

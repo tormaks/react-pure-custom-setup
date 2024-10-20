@@ -7,6 +7,9 @@ export default {
   moduleDirectories: [
     'node_modules',
   ],
+  moduleNameMapper: {
+    '@/(.*)': '<rootDir>/src/$1',
+  },
   moduleFileExtensions: [
     'js',
     'jsx',

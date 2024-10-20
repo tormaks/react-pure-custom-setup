@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { AppButton } from '@/shared/ui/AppButton';
+import { Button } from '@/shared/ui/Button';
 
 export const BugButton: React.FC = () => {
   const { t } = useTranslation();
@@ -19,8 +19,8 @@ export const BugButton: React.FC = () => {
   }, [error]);
 
   return (
-    <AppButton onClick={onThrow}>
+    <Button onClick={onThrow}>
       {t('Воспроизвести ошибку')}
-    </AppButton>
+    </Button>
   );
 };

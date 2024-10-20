@@ -1,37 +1,37 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable no-unused-vars */
 import React from 'react';
-import { Link, LinkProps } from 'react-router-dom';
+import { Link as RouterLink, LinkProps as RouterLinkProps } from 'react-router-dom';
 
 import { classNames } from '@/shared/lib/classNames';
-import cls from './AppLink.module.scss';
+import cls from './Link.module.scss';
 
-export enum AppLinkTheme {
+export enum LinkTheme {
   PRIMARY = 'primary',
   SECONDARY = 'secondary',
 }
 
-interface AppLinkProps extends LinkProps {
+interface LinkProps extends RouterLinkProps {
   className?: string;
-  theme?: AppLinkTheme;
+  theme?: LinkTheme;
 }
 
-export const AppLink: React.FC<AppLinkProps> = (props) => {
+export const Link: React.FC<LinkProps> = (props) => {
   const {
     to,
     className,
     children,
-    theme = AppLinkTheme.PRIMARY,
+    theme = LinkTheme.PRIMARY,
     ...otherProps
   } = props;
 
   return (
-    <Link
+    <RouterLink
       {...otherProps}
       to={to}
       className={classNames(cls.component, {}, [className, cls[theme]])}
     >
       {children}
-    </Link>
+    </RouterLink>
   );
 };

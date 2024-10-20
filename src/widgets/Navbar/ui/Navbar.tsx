@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { classNames } from '@/shared/lib/classNames';
-import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink';
+import { Link, LinkTheme } from '@/shared/ui/Link';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -15,8 +15,8 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
   return (
     <div className={classNames(cls.component, {}, [className])}>
       <div className={cls.links}>
-        <AppLink theme={AppLinkTheme.SECONDARY} to="/">{t('Главная')}</AppLink>
-        <AppLink theme={AppLinkTheme.SECONDARY} to="/about">{t('О сайте')}</AppLink>
+        <Link theme={LinkTheme.SECONDARY} to="/">{t('Главная')}</Link>
+        <Link theme={LinkTheme.SECONDARY} to="/about">{t('О сайте')}</Link>
       </div>
     </div>
   );

@@ -47,7 +47,7 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'import/no-extraneous-dependencies': 'off',
     'no-underscore-dangle': 'off',
-    'i18next/no-literal-string': ['warn', { markupOnly: true, ignoreAttribute: ['data-testid'] }],
+    'i18next/no-literal-string': 'error',
     'no-console': 'off',
     'import/order': ['error',
       {

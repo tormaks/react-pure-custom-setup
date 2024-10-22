@@ -1,1 +1,1 @@
-# news-blog-react-app
+# react-pure-custom-setup

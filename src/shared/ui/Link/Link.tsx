@@ -9,6 +9,7 @@ import cls from './Link.module.scss';
 export enum LinkTheme {
   PRIMARY = 'primary',
   SECONDARY = 'secondary',
+  RED = 'red',
 }
 
 interface LinkProps extends RouterLinkProps {

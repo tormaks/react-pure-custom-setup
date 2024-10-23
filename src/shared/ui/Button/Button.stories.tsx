@@ -1,7 +1,9 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 
+import { Theme } from '@/app/providers/theme';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { Button, ThemeButton } from './Button';
 
 export default {
@@ -30,3 +32,10 @@ Outline.args = {
   children: 'Text',
   theme: ThemeButton.OUTLINE,
 };
+
+export const OutlineDark = Template.bind({});
+OutlineDark.args = {
+  children: 'Text',
+  theme: ThemeButton.OUTLINE,
+};
+OutlineDark.decorators = [ThemeDecorator(Theme.DARK)];

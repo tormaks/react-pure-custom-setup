@@ -7,6 +7,8 @@
     "start": "webpack serve --env port=3000",
     "build:dev": "webpack --env mode=development",
     "build:prod": "webpack --env mode=production",
+    "storybook": "start-storybook dev -p 6006 -c ./config/storybook",
+    "storybook:build": "build-storybook build -c ./config/storybook",
     "lint:ts": "eslint \"**/*.{ts,tsx}\"",
     "lint:ts:fix": "eslint \"**/*.{ts,tsx}\" --fix",
     "lint:scss": "npx stylelint \"**/*.scss\"",
@@ -15,9 +17,7 @@
     "test:ui": "npx loki test",
     "test:ui:update": "npx loki update",
     "test:ui:approve": "npx loki approve --diffOnly",
-    "test:ui:ci": "storybook:build && loki --requireReference --reactUri file:./storybook-static",
-    "storybook": "start-storybook dev -p 6006 -c ./config/storybook",
-    "storybook:build": "build-storybook build -c ./config/storybook"
+    "test:ui:ci": "storybook:build && loki --requireReference --reactUri file:./storybook-static"
   },
   "repository": {
     "type": "git",

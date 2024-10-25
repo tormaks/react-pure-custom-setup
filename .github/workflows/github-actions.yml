@@ -11,7 +11,7 @@ jobs:
     strategy:
       matrix:
         node-version: [ 20.x ]
-        docker-version:
+        docker-version: [ 4.x ]
     steps:
       - uses: actions/checkout@v4
       - name: setup Node.js ${{ matrix.node-version }}

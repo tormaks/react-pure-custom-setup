@@ -15,7 +15,7 @@ describe('classNames', () => {
 
   test('with mods', () => {
     expect(classNames(
-      'someClass',
+      'someClas',
       {
         modeTrueClass: true,
         modeFalseClass: false,

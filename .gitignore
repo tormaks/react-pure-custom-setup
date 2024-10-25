@@ -136,3 +136,5 @@ build
 .idea
 
 *storybook.log
+
+/storybook-static

@@ -1,4 +1,4 @@
-name: react-pure-custom-setup
+name: react-pure-custom-setup_pipeline
 run-name: ${{ github.actor }} is testing out react-pure-custom-setup 🤪
 on:
   push:
@@ -6,7 +6,7 @@ on:
   pull_request:
     branches: [ master, develop ]
 jobs:
-  init:
+  pipeline:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -17,15 +17,15 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-      - name: npm install
+      - name: install modules
         run: npm install
-      - name: build
+      - name: build production project
         run: npm run build:prod
-      - name: lint:ts
+      - name: linting typescript
         run: npm run lint:ts
-      - name: lint:scss
+      - name: linting styles
         run: npm run lint:scss
-      - name: test:unit
+      - name: unit testing
         run: npm run test:unit
-      - name: storybook:build
+      - name: build storybook
         run: npm run storybook:build

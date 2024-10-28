@@ -1,7 +1,7 @@
 import { fireEvent, screen } from '@testing-library/react';
 
 import { Sidebar } from '@/widgets/Sidebar';
-import { renderWithTranslation } from '@/shared/lib/tests/renderWithTranslation';
+import { renderComponent } from '@/shared/lib/tests/renderComponent';
 
 describe('Sidebar', () => {
   beforeEach(() => {
@@ -20,12 +20,12 @@ describe('Sidebar', () => {
   });
 
   test('test render', () => {
-    renderWithTranslation(<Sidebar />);
+    renderComponent(<Sidebar />);
     expect(screen.getByTestId('sidebar')).toBeInTheDocument();
   });
 
   test('test sidebar toggle', () => {
-    renderWithTranslation(<Sidebar />);
+    renderComponent(<Sidebar />);
 
     const sidebar = screen.getByTestId('sidebar');
     const toggleButton = screen.getByTestId('sidebar-toggle');

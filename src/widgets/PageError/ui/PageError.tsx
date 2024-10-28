@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import { classNames } from '@/shared/lib/classNames';
 import { Button } from '@/shared/ui/Button';
-import cls from './PageError.module.scss';
+import classes from './PageError.module.scss';
 
 interface PageErrorProps {
   className?: string;
@@ -19,7 +19,7 @@ export const PageError: React.FC<PageErrorProps> = ({ className }) => {
 
   return (
     <div
-      className={classNames(cls.component, {}, [className as string])}
+      className={classNames(classes.component, {}, [className as string])}
     >
       <p>{t('Что-то пошло не так!')}</p>
       <Button onClick={reloadPage}>

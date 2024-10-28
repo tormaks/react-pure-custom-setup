@@ -2,7 +2,7 @@ import React from 'react';
 
 import { classNames } from '@/shared/lib/classNames';
 import { Loader } from '@/shared/ui/Loader';
-import cls from './PageLoader.module.scss';
+import classes from './PageLoader.module.scss';
 
 interface PageLoaderProps {
   className?: string;
@@ -10,7 +10,7 @@ interface PageLoaderProps {
 
 export const PageLoader: React.FC<PageLoaderProps> = ({ className }) => (
   <div
-    className={classNames(cls.component, {}, [className as string])}
+    className={classNames(classes.component, {}, [className as string])}
   >
     <Loader />
   </div>

@@ -4,7 +4,7 @@ import React from 'react';
 import { Link as RouterLink, LinkProps as RouterLinkProps } from 'react-router-dom';
 
 import { classNames } from '@/shared/lib/classNames';
-import cls from './Link.module.scss';
+import classes from './Link.module.scss';
 
 export enum LinkTheme {
   PRIMARY = 'primary',
@@ -30,7 +30,7 @@ export const Link: React.FC<LinkProps> = (props) => {
     <RouterLink
       {...otherProps}
       to={to}
-      className={classNames(cls.component, {}, [className as string, cls[theme]])}
+      className={classNames(classes.component, {}, [className as string, classes[theme]])}
     >
       {children}
     </RouterLink>

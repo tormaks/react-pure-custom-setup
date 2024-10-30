@@ -7,7 +7,7 @@ import AboutIcon from '@/shared/assets/icons/aboutIcon.svg';
 import MainIcon from '@/shared/assets/icons/mainIcon.svg';
 import { RoutePath } from '@/shared/config/routerConfig';
 import { classNames } from '@/shared/lib/classNames';
-import { Button, ButtonTheme } from '@/shared/ui/Button';
+import { Button } from '@/shared/ui/Button';
 import { Link, LinkTheme } from '@/shared/ui/Link';
 import classes from './Sidebar.module.scss';
 
@@ -33,7 +33,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ className }) => {
         data-testid="sidebar-toggle"
         onClick={onToggle}
         className={classes.collapseBtn}
-        theme={ButtonTheme.BACKGROUND_INVERTED}
+        theme="backgroundInverted"
         size="L"
       >
         {collapsed ? '>' : '<'}

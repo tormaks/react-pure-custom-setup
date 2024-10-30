@@ -4,7 +4,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { Theme } from '@/app/providers/theme';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
-import { Button, ButtonTheme } from './Button';
+import { Button } from './Button';
 
 export default {
   title: 'shared/Button',
@@ -24,59 +24,59 @@ Primary.args = {
 export const Clear = Template.bind({});
 Clear.args = {
   children: 'Text',
-  theme: ButtonTheme.CLEAR,
+  theme: 'clear',
 };
 
 export const Outline = Template.bind({});
 Outline.args = {
   children: 'Text',
-  theme: ButtonTheme.OUTLINE,
+  theme: 'outline',
 };
 
 export const OutlineSizeL = Template.bind({});
 OutlineSizeL.args = {
   children: 'Text',
-  theme: ButtonTheme.OUTLINE,
+  theme: 'outline',
   size: 'L',
 };
 
 export const OutlineSizeXl = Template.bind({});
 OutlineSizeXl.args = {
   children: 'Text',
-  theme: ButtonTheme.OUTLINE,
+  theme: 'outline',
   size: 'XL',
 };
 
 export const OutlineDark = Template.bind({});
 OutlineDark.args = {
   children: 'Text',
-  theme: ButtonTheme.OUTLINE,
+  theme: 'outline',
 };
 OutlineDark.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const Background = Template.bind({});
 Background.args = {
   children: 'Text',
-  theme: ButtonTheme.BACKGROUND,
+  theme: 'background',
 };
 
 export const BackgroundInverted = Template.bind({});
 BackgroundInverted.args = {
   children: 'Text',
-  theme: ButtonTheme.BACKGROUND_INVERTED,
+  theme: 'backgroundInverted',
 };
 
 export const Square = Template.bind({});
 Square.args = {
   children: '>',
-  theme: ButtonTheme.BACKGROUND_INVERTED,
+  theme: 'backgroundInverted',
   square: true,
 };
 
 export const SquareSizeL = Template.bind({});
 SquareSizeL.args = {
   children: '>',
-  theme: ButtonTheme.BACKGROUND_INVERTED,
+  theme: 'backgroundInverted',
   square: true,
   size: 'L',
 };
@@ -84,7 +84,7 @@ SquareSizeL.args = {
 export const SquareSizeXL = Template.bind({});
 SquareSizeXL.args = {
   children: '>',
-  theme: ButtonTheme.BACKGROUND_INVERTED,
+  theme: 'backgroundInverted',
   square: true,
   size: 'XL',
 };

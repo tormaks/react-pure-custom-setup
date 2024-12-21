@@ -1,0 +1,30 @@
+/* eslint-disable react/jsx-props-no-spreading */
+import React from 'react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
+
+import { Theme } from '@/app/providers/theme';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
+import { Modal } from './Modal';
+
+export default {
+  title: 'shared/Modal',
+  component: Modal,
+  argTypes: {
+    backgroundColor: { control: 'color' },
+  },
+} as ComponentMeta<typeof Modal>;
+
+const Template: ComponentStory<typeof Modal> = (args) => <Modal {...args} />;
+
+export const Light = Template.bind({});
+Light.args = {
+  isOpen: true,
+  children: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore ex, fugit harum ipsa iste minus necessitatibus, odio odit, optio quod quos veniam voluptatem. Culpa cumque fugiat ipsum mollitia, quas sit!',
+};
+
+export const Dark = Template.bind({});
+Dark.args = {
+  isOpen: true,
+  children: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore ex, fugit harum ipsa iste minus necessitatibus, odio odit, optio quod quos veniam voluptatem. Culpa cumque fugiat ipsum mollitia, quas sit!',
+};
+Dark.decorators = [ThemeDecorator(Theme.DARK)];

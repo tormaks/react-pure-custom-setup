@@ -5,7 +5,7 @@ import React, { ButtonHTMLAttributes } from 'react';
 import { classNames } from '@/shared/lib/classNames';
 import classes from './Button.module.scss';
 
-type ButtonTheme = 'clear' | 'outline' | 'background' | 'backgroundInverted';
+type ButtonTheme = 'clear' | 'clearInverted' | 'outline' | 'background' | 'backgroundInverted';
 
 type ButtonSize = 'M' | 'L' | 'XL';
 

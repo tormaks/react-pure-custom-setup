@@ -22,7 +22,7 @@ export const Navbar: FC<NavbarProps> = (props) => {
 
   return (
     <div className={classNames(classes.component, {}, [className as string])}>
-      <Button className={classes.links} theme="clearInverted" onClick={onToggleAuthModal}>
+      <Button className={classes.links} theme="outline" onClick={onToggleAuthModal}>
         {t('Войти')}
       </Button>
       {/* eslint-disable-next-line i18next/no-literal-string */}

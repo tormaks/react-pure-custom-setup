@@ -7,7 +7,7 @@ on:
     branches: [ master, develop ]
 jobs:
   pipeline:
-    runs-on: ubuntu-latest
+    runs-on: windows-2019
     strategy:
       matrix:
         node-version: [ 16.x ]
@@ -41,14 +41,3 @@ jobs:
         id: screenshots
         run: npm run test:ui:ci
         if: always()
-      - name: screenshot debug
-        if: ${{ failure() && steps.screenshots.conclusion == 'failure' }}
-        run:
-          date > generated.txt
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-          git add -f .loki/difference
-          git add .
-          git checkout -b save-screenshots
-          git commit -am "screenshots failure"
-          git push -f origin save-screenshots

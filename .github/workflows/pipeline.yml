@@ -1,5 +1,5 @@
 name: react-pure-custom-setup_pipeline
-run-name: ${{ github.actor }} is testing out react-pure-custom-setup 🤪
+run-name: ${{ github.actor }} is testing out react-pure-custom-setup 🚀
 on:
   push:
     branches: [ master, develop ]
@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [ 20.x ]
+        node-version: [ 22.x ]
     steps:
       - uses: actions/checkout@v4
       - name: setup Node.js ${{ matrix.node-version }}

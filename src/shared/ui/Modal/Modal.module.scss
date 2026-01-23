@@ -1,12 +1,23 @@
 .component {
   position: fixed;
   top: 0;
-  left: 0;
-  right: 0;
   bottom: 0;
-  pointer-events: none;
+  right: 0;
+  left: 0;
   opacity: 0;
+  pointer-events: none;
   z-index: -1;
+  color: var(--primary-color);
+}
+
+.component.dark {
+  --bg-color: #090949;
+  --primary-color: #04ff04;
+}
+
+.component.light {
+  --bg-color: #e8e8ea;
+  --primary-color: #0232c2;
 }
 
 .overlay {

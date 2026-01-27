@@ -11,13 +11,11 @@ export const Counter = () => {
   const value = useSelector(getCounterValue);
 
   const increment = () => {
-    // eslint-disable-next-line no-alert
-    dispatch(counterActions.increment(Number(prompt())));
+    dispatch(counterActions.increment());
   };
 
   const decrement = () => {
-    // eslint-disable-next-line no-alert
-    dispatch(counterActions.decrement(Number(prompt())));
+    dispatch(counterActions.decrement());
   };
 
   return (

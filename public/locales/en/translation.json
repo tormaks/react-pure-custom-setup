@@ -6,5 +6,7 @@
   "Обновить страницу": "Refresh the page",
   "Воспроизвести ошибку": "Reproduce the error",
   "Короткий язык": "En",
-  "Войти": "Login"
+  "Войти": "Login",
+  "increment": "increment",
+  "decrement": "decrement"
 }

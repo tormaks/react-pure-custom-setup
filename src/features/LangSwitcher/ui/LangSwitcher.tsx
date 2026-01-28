@@ -18,7 +18,7 @@ export const LangSwitcher: React.FC<LangSwitcherProps> = ({ className, short }) 
 
   return (
     <Button
-      theme="clear"
+      theme="clearInverted"
       onClick={onToggle}
       className={classNames('', {}, [className as string])}
     >

@@ -1,4 +1,6 @@
-import React, { FC, useMemo, useState } from 'react';
+import React, {
+  FC, useEffect, useMemo, useState,
+} from 'react';
 
 import { LOCAL_STORAGE_THEME_KEY, Theme, ThemeContext } from '../lib/ThemeContext';
 
@@ -15,6 +17,10 @@ const ThemeProvider: FC<ThemeProviderProps> = (props) => {
   } = props;
 
   const [theme, setTheme] = useState<Theme>(initialTheme || defaultTheme);
+
+  useEffect(() => {
+    document.body.className = theme;
+  }, []); // eslint-disable-line
 
   const defaultProps = useMemo(() => ({
     theme,

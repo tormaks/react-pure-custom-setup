@@ -31,7 +31,6 @@ export const Modal: React.FC<ModalProps> = (props) => {
   const mods: Record<string, boolean> = {
     [classes.opened]: isOpen as boolean,
     [classes.closing]: isCLosing as boolean,
-    [classes[theme]]: true,
   };
 
   const closeHandler = useCallback(() => {
@@ -68,7 +67,7 @@ export const Modal: React.FC<ModalProps> = (props) => {
   return (
     <Portal>
       <div
-        className={classNames(classes.component, mods, [className as string])}
+        className={classNames(classes.component, mods, [className as string, theme])}
       >
         <div className={classes.overlay} onClick={closeHandler}>
           <div className={classes.content} onClick={onClickContent}>

@@ -1,9 +1,9 @@
 import { FC, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
+import { LoginModal } from '@/features/AuthByUsername';
 import { classNames } from '@/shared/lib/classNames';
 import { Button } from '@/shared/ui/Button';
-import { Modal } from '@/shared/ui/Modal';
 import classes from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -16,19 +16,20 @@ export const Navbar: FC<NavbarProps> = (props) => {
 
   const [isAuthModal, setIsAuthModal] = useState<boolean>(false);
 
-  const onToggleAuthModal = useCallback(() => {
-    setIsAuthModal((prev) => !prev);
+  const onCloseAuthModal = useCallback(() => {
+    setIsAuthModal(false);
+  }, []);
+
+  const onShowAuthModal = useCallback(() => {
+    setIsAuthModal(true);
   }, []);
 
   return (
     <div className={classNames(classes.component, {}, [className as string])}>
-      <Button className={classes.links} theme="outline" onClick={onToggleAuthModal}>
+      <Button className={classes.links} theme="outline" onClick={onShowAuthModal}>
         {t('Войти')}
       </Button>
-      {/* eslint-disable-next-line i18next/no-literal-string */}
-      <Modal isOpen={isAuthModal} onClose={onToggleAuthModal}>
-        TODO: develop
-      </Modal>
+      <LoginModal isOpen={isAuthModal} onClose={onCloseAuthModal} />
     </div>
   );
 };

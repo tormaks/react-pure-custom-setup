@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import { classNames } from '@/shared/lib/classNames';
 import { Button } from '@/shared/ui/Button';
+import { Input } from '@/shared/ui/Input';
 import classes from './LoginForm.module.scss';
 
 interface LoginFormProps {
@@ -18,8 +19,16 @@ export const LoginForm: React.FC<LoginFormProps> = (props) => {
     <div
       className={classNames(classes.component, {}, [className as string])}
     >
-      <input className={classes.input} type="text" />
-      <input className={classes.input} type="text" />
+      <Input
+        className={classes.input}
+        placeholder={t('Введите username')}
+        type="text"
+      />
+      <Input
+        className={classes.input}
+        placeholder={t('Введите пароль')}
+        type="text"
+      />
       <Button className={classes.loginBtn}>{t('Войти')}</Button>
     </div>
   );

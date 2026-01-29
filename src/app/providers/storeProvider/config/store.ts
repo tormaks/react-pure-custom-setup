@@ -1,14 +1,18 @@
-import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import { configureStore, ReducersMapObject } from '@reduxjs/toolkit';
 
 import { counterReducer } from '@/entities/Counter';
+import { userReducer } from '@/entities/User';
 import { StateSchema } from './stateSchema';
 
-const rootReducer = combineReducers({
-  counter: counterReducer,
-});
+export const createReduxStore = (initialState?: StateSchema) => {
+  const rootReducer: ReducersMapObject<StateSchema> = {
+    counter: counterReducer,
+    user: userReducer,
+  };
 
-export const createReduxStore = (initialState?: StateSchema) => configureStore<StateSchema>({
-  reducer: rootReducer,
-  devTools: __IS_DEV__,
-  preloadedState: initialState,
-});
+  return configureStore<StateSchema>({
+    reducer: rootReducer,
+    devTools: __IS_DEV__,
+    preloadedState: initialState,
+  });
+};

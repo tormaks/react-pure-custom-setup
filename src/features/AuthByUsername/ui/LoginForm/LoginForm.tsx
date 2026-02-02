@@ -7,6 +7,7 @@ import { loginActions } from '@/features/AuthByUsername';
 import { classNames } from '@/shared/lib/classNames';
 import { Button } from '@/shared/ui/Button';
 import { Input } from '@/shared/ui/Input';
+import { Text } from '@/shared/ui/Text/Text';
 import { getLogin } from '../../model/selectors/getLogin';
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
 import classes from './LoginForm.module.scss';
@@ -43,7 +44,8 @@ export const LoginForm: React.FC<LoginFormProps> = memo((props) => {
     <div
       className={classNames(classes.component, {}, [className as string])}
     >
-      {error && <div style={{ color: 'red' }}>{error}</div>}
+      <Text title={t('Авторизация')} />
+      {error && <Text description={error} theme="error" /> }
       <Input
         className={classes.input}
         placeholder={t('Введите username')}

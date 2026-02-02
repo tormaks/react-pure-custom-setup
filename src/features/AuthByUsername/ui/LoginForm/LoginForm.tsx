@@ -45,7 +45,7 @@ export const LoginForm: React.FC<LoginFormProps> = memo((props) => {
       className={classNames(classes.component, {}, [className as string])}
     >
       <Text title={t('Авторизация')} />
-      {error && <Text description={error} theme="error" /> }
+      {error && <Text description={t('Неверный логин или пароль')} theme="error" /> }
       <Input
         className={classes.input}
         placeholder={t('Введите username')}

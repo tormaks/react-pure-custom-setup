@@ -3,6 +3,7 @@ import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { Theme } from '@/app/providers/theme';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { LoginModal } from './LoginModal';
 
@@ -20,9 +21,26 @@ export const Primary = Template.bind({});
 Primary.args = {
   isOpen: true,
 };
+Primary.decorators = [StoreDecorator({ loginForm: { username: 'username', password: 'password' } })];
 
 export const PrimaryDark = Template.bind({});
 PrimaryDark.args = {
   isOpen: true,
 };
-PrimaryDark.decorators = [ThemeDecorator(Theme.DARK)];
+PrimaryDark.decorators = [StoreDecorator({ loginForm: { username: 'username', password: 'password' } }), ThemeDecorator(Theme.DARK)];
+
+export const Error = Template.bind({});
+Error.args = {
+  isOpen: true,
+};
+Error.decorators = [StoreDecorator({ loginForm: { username: 'username', password: 'password', error: 'ERROR' } })];
+
+export const Loading = Template.bind({});
+Loading.args = {
+  isOpen: true,
+};
+Loading.decorators = [StoreDecorator({
+  loginForm: {
+    username: 'username', password: 'password', isLoading: true,
+  },
+})];

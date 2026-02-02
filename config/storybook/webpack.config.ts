@@ -1,6 +1,6 @@
 /* eslint-disable no-param-reassign */
 import path from 'path';
-import webpack from 'webpack';
+import { Configuration, DefinePlugin } from 'webpack';
 
 import { buildCssLoader } from '../build/loaders/buildCssLoader';
 import { buildSvgLoader } from '../build/loaders/buildSvgLoader';
@@ -9,7 +9,7 @@ import { buildSvgLoader } from '../build/loaders/buildSvgLoader';
  * @param {{ config }} - объект с полем старого webpack-конфига для storybook
  * @return {config} - новый webpack-конфиг для storybook
  */
-export default ({ config }: { config: webpack.Configuration }) => {
+export default ({ config }: { config: Configuration }) => {
   const srcPath = path.resolve(__dirname, '..', '..', 'src');
 
   /**
@@ -37,6 +37,9 @@ export default ({ config }: { config: webpack.Configuration }) => {
     ...config?.resolve?.alias,
     '@': srcPath,
   };
+  config?.plugins?.push(new DefinePlugin({
+    __IS_DEV__: true,
+  }));
 
   return config;
 };

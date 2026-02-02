@@ -15,6 +15,7 @@ export const parameters = {
   },
 };
 
+// eslint-disable-next-line max-len
 [StyleDecorator, ThemeDecorator(Theme.LIGHT), RouterDecorator].forEach((decorator) => {
   addDecorator(decorator);
 });

@@ -27,6 +27,12 @@ Clear.args = {
   theme: 'clear',
 };
 
+export const Disabled = Template.bind({});
+Disabled.args = {
+  children: 'Text',
+  disabled: true,
+};
+
 export const ClearInverted = Template.bind({});
 ClearInverted.args = {
   children: 'Text',

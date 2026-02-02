@@ -18,7 +18,12 @@ interface LoginFormProps {
 export const LoginForm: React.FC<LoginFormProps> = memo((props) => {
   const { className } = props;
   const dispatch = useDispatch();
-  const { username, password } = useSelector(getLogin);
+  const {
+    username,
+    password,
+    isLoading,
+    error,
+  } = useSelector(getLogin);
 
   const { t } = useTranslation();
 
@@ -38,6 +43,7 @@ export const LoginForm: React.FC<LoginFormProps> = memo((props) => {
     <div
       className={classNames(classes.component, {}, [className as string])}
     >
+      {error && <div style={{ color: 'red' }}>{error}</div>}
       <Input
         className={classes.input}
         placeholder={t('Введите username')}
@@ -55,6 +61,7 @@ export const LoginForm: React.FC<LoginFormProps> = memo((props) => {
       <Button
         className={classes.loginBtn}
         onClick={onClickLogin}
+        disabled={isLoading}
       >
         {t('Войти')}
       </Button>

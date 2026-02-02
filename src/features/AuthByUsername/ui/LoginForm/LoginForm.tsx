@@ -1,19 +1,33 @@
-import React from 'react';
+/* eslint-disable react/prop-types */
+import React, { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useDispatch, useSelector } from 'react-redux';
 
+import { loginActions } from '@/features/AuthByUsername';
 import { classNames } from '@/shared/lib/classNames';
 import { Button } from '@/shared/ui/Button';
 import { Input } from '@/shared/ui/Input';
+import { getLogin } from '../../model/selectors/getLogin';
 import classes from './LoginForm.module.scss';
 
 interface LoginFormProps {
   className?: string;
 }
 
-export const LoginForm: React.FC<LoginFormProps> = (props) => {
+export const LoginForm: React.FC<LoginFormProps> = memo((props) => {
   const { className } = props;
+  const dispatch = useDispatch();
+  const { username, password } = useSelector(getLogin);
 
   const { t } = useTranslation();
+
+  const onChangeUsername = useCallback((value: string) => {
+    dispatch(loginActions.setUsername(value));
+  }, [dispatch]);
+
+  const onChangePassword = useCallback((value: string) => {
+    dispatch(loginActions.setPassword(value));
+  }, [dispatch]);
 
   return (
     <div
@@ -23,13 +37,17 @@ export const LoginForm: React.FC<LoginFormProps> = (props) => {
         className={classes.input}
         placeholder={t('Введите username')}
         type="text"
+        value={username}
+        onChange={onChangeUsername}
       />
       <Input
         className={classes.input}
         placeholder={t('Введите пароль')}
         type="text"
+        value={password}
+        onChange={onChangePassword}
       />
       <Button className={classes.loginBtn}>{t('Войти')}</Button>
     </div>
   );
-};
+});

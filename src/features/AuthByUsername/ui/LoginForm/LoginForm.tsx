@@ -8,6 +8,7 @@ import { classNames } from '@/shared/lib/classNames';
 import { Button } from '@/shared/ui/Button';
 import { Input } from '@/shared/ui/Input';
 import { getLogin } from '../../model/selectors/getLogin';
+import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
 import classes from './LoginForm.module.scss';
 
 interface LoginFormProps {
@@ -29,6 +30,10 @@ export const LoginForm: React.FC<LoginFormProps> = memo((props) => {
     dispatch(loginActions.setPassword(value));
   }, [dispatch]);
 
+  const onClickLogin = useCallback(() => {
+    dispatch(loginByUsername({ username, password }));
+  }, [dispatch, password, username]);
+
   return (
     <div
       className={classNames(classes.component, {}, [className as string])}
@@ -47,7 +52,12 @@ export const LoginForm: React.FC<LoginFormProps> = memo((props) => {
         value={password}
         onChange={onChangePassword}
       />
-      <Button className={classes.loginBtn}>{t('Войти')}</Button>
+      <Button
+        className={classes.loginBtn}
+        onClick={onClickLogin}
+      >
+        {t('Войти')}
+      </Button>
     </div>
   );
 });

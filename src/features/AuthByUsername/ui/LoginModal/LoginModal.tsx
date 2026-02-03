@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 
+import { Loader } from '@/shared/ui/Loader';
 import { Modal } from '@/shared/ui/Modal';
 import { LoginForm } from '../LoginForm';
 
@@ -17,7 +18,9 @@ export const LoginModal: React.FC<LoginModalProps> = (props) => {
       onClose={onClose}
       lazy
     >
-      <LoginForm />
+      <Suspense fallback={<Loader />}>
+        <LoginForm />
+      </Suspense>
     </Modal>
   );
 };

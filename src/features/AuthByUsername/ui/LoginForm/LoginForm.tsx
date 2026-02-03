@@ -12,11 +12,11 @@ import { getLogin } from '../../model/selectors/getLogin';
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
 import classes from './LoginForm.module.scss';
 
-interface LoginFormProps {
+export interface LoginFormProps {
   className?: string;
 }
 
-export const LoginForm: React.FC<LoginFormProps> = memo((props) => {
+const LoginForm: React.FC<LoginFormProps> = memo((props) => {
   const { className } = props;
   const dispatch = useDispatch();
   const {
@@ -70,3 +70,5 @@ export const LoginForm: React.FC<LoginFormProps> = memo((props) => {
     </div>
   );
 });
+
+export default LoginForm;

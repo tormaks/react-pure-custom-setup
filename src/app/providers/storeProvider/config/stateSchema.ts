@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { AnyAction, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
 import { ToolkitStore } from '@reduxjs/toolkit/dist/configureStore';
 import { CombinedState } from 'redux';

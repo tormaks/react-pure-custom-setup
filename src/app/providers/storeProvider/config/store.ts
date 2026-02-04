@@ -1,9 +1,11 @@
-import { configureStore, ReducersMapObject } from '@reduxjs/toolkit';
+import {
+  AnyAction, configureStore, ReducersMapObject, Reducer,
+} from '@reduxjs/toolkit';
 
 import { counterReducer } from '@/entities/Counter';
 import { userReducer } from '@/entities/User';
 import { createReducerManager } from './reducerManager';
-import { StateSchema } from './stateSchema';
+import { ReduxStoreWithManager, StateSchema } from './stateSchema';
 
 export const createReduxStore = (initialState?: StateSchema) => {
   const rootReducer: ReducersMapObject<StateSchema> = {
@@ -13,13 +15,12 @@ export const createReduxStore = (initialState?: StateSchema) => {
 
   const reducerManager = createReducerManager(rootReducer);
 
-  const store = configureStore<StateSchema>({
-    reducer: rootReducer,
+  const store: ReduxStoreWithManager = configureStore<StateSchema>({
+    reducer: reducerManager.reduce as Reducer<StateSchema, AnyAction> | ReducersMapObject<StateSchema, AnyAction>,
     devTools: __IS_DEV__,
     preloadedState: initialState,
   });
 
-  // @ts-ignore
   store.reducerManager = reducerManager;
 
   return store;

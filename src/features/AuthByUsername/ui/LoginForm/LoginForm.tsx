@@ -8,7 +8,10 @@ import { classNames } from '@/shared/lib/classNames';
 import { Button } from '@/shared/ui/Button';
 import { Input } from '@/shared/ui/Input';
 import { Text } from '@/shared/ui/Text/Text';
-import { getLogin } from '../../model/selectors/getLogin';
+import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
+import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading';
+import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
+import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLoginUsername';
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
 import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 import classes from './LoginForm.module.scss';
@@ -21,19 +24,19 @@ const LoginForm: React.FC<LoginFormProps> = memo((props) => {
   const { className } = props;
   const dispatch = useDispatch();
   const store = useStore() as ReduxStoreWithManager;
-  const {
-    username,
-    password,
-    isLoading,
-    error,
-  } = useSelector(getLogin);
+  const username = useSelector(getLoginUsername);
+  const password = useSelector(getLoginPassword);
+  const error = useSelector(getLoginError);
+  const isLoading = useSelector(getLoginIsLoading);
   const { t } = useTranslation();
 
   useEffect(() => {
     store.reducerManager?.add('loginForm', loginReducer);
+    dispatch({ type: 'haha' });
 
     return () => {
       store.reducerManager?.remove('loginForm');
+      dispatch({ type: 'hoho' });
     };
   }, []); //eslint-disable-line
 

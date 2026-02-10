@@ -1,5 +1,5 @@
 {
-  "name": "news-blog-react-app",
+  "name": "react-pure-custom-setup",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -26,7 +26,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tormaks/news-blog-react-app.git"
+    "url": "git+https://github.com/tormaks/react-pure-custom-setup.git"
   },
   "eslintConfig": {
     "extends": [
@@ -37,9 +37,9 @@
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/tormaks/news-blog-react-app/issues"
+    "url": "https://github.com/tormaks/react-pure-custom-setup/issues"
   },
-  "homepage": "https://github.com/tormaks/news-blog-react-app#readme",
+  "homepage": "https://github.com/tormaks/react-pure-custom-setup#readme",
   "devDependencies": {
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",

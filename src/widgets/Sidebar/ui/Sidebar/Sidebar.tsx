@@ -1,22 +1,20 @@
-import React, { useState } from 'react';
-import { useTranslation } from 'react-i18next';
+import React, { memo, useState } from 'react';
 
+import { SidebarItem } from '@/widgets/Sidebar/ui/SidebarItem';
 import { LangSwitcher } from '@/features/LangSwitcher';
 import { ThemeSwitcher } from '@/features/ThemeSwitcher';
-import AboutIcon from '@/shared/assets/icons/aboutIcon.svg';
-import MainIcon from '@/shared/assets/icons/mainIcon.svg';
-import { RoutePath } from '@/shared/config/routerConfig';
 import { classNames } from '@/shared/lib/classNames';
 import { Button } from '@/shared/ui/Button';
-import { Link, LinkTheme } from '@/shared/ui/Link';
+import { sidebarItems } from '../../model';
 import classes from './Sidebar.module.scss';
 
 interface SidebarProps {
   className?: string;
 }
 
-export const Sidebar: React.FC<SidebarProps> = ({ className }) => {
-  const { t } = useTranslation();
+export const Sidebar = memo((props: SidebarProps) => {
+  const { className } = props;
+
   const [collapsed, setCollapsed] = useState<boolean>(false);
 
   const onToggle = () => {
@@ -39,22 +37,13 @@ export const Sidebar: React.FC<SidebarProps> = ({ className }) => {
         {collapsed ? '>' : '<'}
       </Button>
       <div className={classes.items}>
-        <Link
-          className={classes.item}
-          theme={LinkTheme.SECONDARY}
-          to={RoutePath.main}
-        >
-          <MainIcon className={classes.icon} />
-          <span className={classes.link}>{t('Главная')}</span>
-        </Link>
-        <Link
-          className={classes.item}
-          theme={LinkTheme.SECONDARY}
-          to={RoutePath.about}
-        >
-          <AboutIcon className={classes.icon} />
-          <span className={classes.link}>{t('О сайте')}</span>
-        </Link>
+        {sidebarItems.map((item) => (
+          <SidebarItem
+            key={item.path}
+            item={item}
+            collapsed={collapsed}
+          />
+        ))}
       </div>
       <div className={classes.switchers}>
         <ThemeSwitcher />
@@ -62,4 +51,4 @@ export const Sidebar: React.FC<SidebarProps> = ({ className }) => {
       </div>
     </div>
   );
-};
+});

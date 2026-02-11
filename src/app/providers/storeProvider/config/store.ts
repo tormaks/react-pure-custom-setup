@@ -1,11 +1,11 @@
 import {
-  AnyAction, configureStore, ReducersMapObject, Reducer, DeepPartial,
+  AnyAction, configureStore, DeepPartial, Reducer, ReducersMapObject,
 } from '@reduxjs/toolkit';
 
 import { counterReducer } from '@/entities/Counter';
 import { userReducer } from '@/entities/User';
+import { StateSchema } from './StateSchema';
 import { createReducerManager } from './reducerManager';
-import { ReduxStoreWithManager, StateSchema } from './stateSchema';
 
 export const createReduxStore = (
   initialState?: StateSchema,
@@ -19,13 +19,16 @@ export const createReduxStore = (
 
   const reducerManager = createReducerManager(rootReducer);
 
-  const store: ReduxStoreWithManager = configureStore<StateSchema>({
+  const store = configureStore<StateSchema>({
     reducer: reducerManager.reduce as Reducer<StateSchema, AnyAction> | ReducersMapObject<StateSchema, AnyAction>,
     devTools: __IS_DEV__,
     preloadedState: initialState,
   });
 
+  // @ts-ignore
   store.reducerManager = reducerManager;
 
   return store;
 };
+
+export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch'];

@@ -3,8 +3,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useStore } from 'react-redux';
 
-import { ReduxStoreWithManager } from '@/app/providers/storeProvider';
-import { ReducersList, StateSchemaKey } from '@/app/providers/storeProvider/config/stateSchema';
+import { ReduxStoreWithManager, ReducersList, StateSchemaKey } from '@/app/providers/storeProvider';
 
 interface DynamicModuleLoaderProps {
   reducers: ReducersList;

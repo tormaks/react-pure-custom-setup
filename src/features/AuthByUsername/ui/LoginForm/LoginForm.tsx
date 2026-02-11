@@ -1,11 +1,12 @@
 /* eslint-disable react/prop-types */
 import React, { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import { ReducersList } from '@/app/providers/storeProvider';
 import { classNames } from '@/shared/lib/classNames';
 import { DynamicModuleLoader } from '@/shared/lib/components/DynamicModuleLoader';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { Button } from '@/shared/ui/Button';
 import { Input } from '@/shared/ui/Input';
 import { Text } from '@/shared/ui/Text/Text';
@@ -19,6 +20,7 @@ import classes from './LoginForm.module.scss';
 
 export interface LoginFormProps {
   className?: string;
+  onClose: () => void,
 }
 
 const initialReducers: ReducersList = {
@@ -26,8 +28,8 @@ const initialReducers: ReducersList = {
 };
 
 const LoginForm: React.FC<LoginFormProps> = memo((props) => {
-  const { className } = props;
-  const dispatch = useDispatch();
+  const { className, onClose } = props;
+  const dispatch = useAppDispatch();
   const username = useSelector(getLoginUsername);
   const password = useSelector(getLoginPassword);
   const error = useSelector(getLoginError);
@@ -42,9 +44,13 @@ const LoginForm: React.FC<LoginFormProps> = memo((props) => {
     dispatch(loginActions.setPassword(value));
   }, [dispatch]);
 
-  const onClickLogin = useCallback(() => {
-    dispatch(loginByUsername({ username, password }));
-  }, [dispatch, password, username]);
+  const onClickLogin = useCallback(async () => {
+    const result = await dispatch(loginByUsername({ username, password }));
+
+    if (result.meta.requestStatus === 'fulfilled') {
+      onClose();
+    }
+  }, [dispatch, onClose, password, username]);
 
   return (
     <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>

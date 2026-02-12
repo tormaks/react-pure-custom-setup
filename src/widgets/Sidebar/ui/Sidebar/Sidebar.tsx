@@ -1,4 +1,4 @@
-import React, { memo, useState } from 'react';
+import { memo, useState } from 'react';
 
 import { SidebarItem } from '@/widgets/Sidebar/ui/SidebarItem';
 import { LangSwitcher } from '@/features/LangSwitcher';

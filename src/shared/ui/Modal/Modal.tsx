@@ -1,5 +1,5 @@
-import React, {
-  useCallback, useEffect, useRef, useState,
+import {
+  ReactNode, MouseEventHandler, useCallback, useEffect, useRef, useState,
 } from 'react';
 
 import { useTheme } from '@/app/providers/theme';
@@ -9,7 +9,7 @@ import classes from './Modal.module.scss';
 
 interface ModalProps {
   className?: string;
-  children?: React.ReactNode;
+  children?: ReactNode;
   isOpen?: boolean;
   onClose?: () => void;
   lazy?: boolean;
@@ -17,7 +17,7 @@ interface ModalProps {
 
 const ANIMATION_DELAY = 300;
 
-export const Modal: React.FC<ModalProps> = (props) => {
+export const Modal = (props: ModalProps) => {
   const {
     className,
     children,
@@ -52,7 +52,7 @@ export const Modal: React.FC<ModalProps> = (props) => {
     }
   }, [onClose]);
 
-  const onClickContent: React.MouseEventHandler<HTMLDivElement> = (e) => {
+  const onClickContent: MouseEventHandler<HTMLDivElement> = (e) => {
     e.stopPropagation();
   };
 

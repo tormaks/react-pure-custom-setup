@@ -1,5 +1,4 @@
-/* eslint-disable react/prop-types */
-import React, { memo, useCallback } from 'react';
+import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
@@ -27,7 +26,7 @@ const initialReducers: ReducersList = {
   loginForm: loginReducer,
 };
 
-const LoginForm: React.FC<LoginFormProps> = memo((props) => {
+const LoginForm = memo((props: LoginFormProps) => {
   const { className, onClose } = props;
   const dispatch = useAppDispatch();
   const username = useSelector(getLoginUsername);

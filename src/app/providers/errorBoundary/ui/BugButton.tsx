@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { Button } from '@/shared/ui/Button';
 
-export const BugButton: React.FC = () => {
+export const BugButton = memo(() => {
   const { t } = useTranslation();
 
   const [error, setError] = useState<undefined | boolean>(undefined);
@@ -23,4 +23,4 @@ export const BugButton: React.FC = () => {
       {t('Воспроизвести ошибку')}
     </Button>
   );
-};
+});

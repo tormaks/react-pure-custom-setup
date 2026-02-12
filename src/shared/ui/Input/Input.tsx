@@ -1,5 +1,4 @@
-/* eslint-disable react/prop-types */
-import React, { InputHTMLAttributes, memo } from 'react';
+import { ChangeEvent, InputHTMLAttributes, memo } from 'react';
 
 import { classNames } from '@/shared/lib/classNames';
 import classes from './Input.module.scss';
@@ -13,7 +12,7 @@ interface InputProps extends HTMLInputProps{
   placeholder?: string;
 }
 
-export const Input: React.FC<InputProps> = memo((props) => {
+export const Input = memo((props: InputProps) => {
   const {
     className,
     value,
@@ -23,7 +22,7 @@ export const Input: React.FC<InputProps> = memo((props) => {
     ...otherProps
   } = props;
 
-  const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
     onChange?.(e.target.value);
   };
 

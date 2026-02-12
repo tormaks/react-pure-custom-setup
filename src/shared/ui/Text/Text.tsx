@@ -1,4 +1,4 @@
-import React from 'react';
+import { memo } from 'react';
 
 import { classNames } from '@/shared/lib/classNames';
 import classes from './Text.module.scss';
@@ -12,7 +12,7 @@ interface TextProps {
   theme?: TextTheme;
 }
 
-export const Text: React.FC<TextProps> = (props) => {
+export const Text = memo((props: TextProps) => {
   const {
     className,
     title,
@@ -28,4 +28,4 @@ export const Text: React.FC<TextProps> = (props) => {
       {description && <p className={classes.description}>{description}</p>}
     </div>
   );
-};
+});

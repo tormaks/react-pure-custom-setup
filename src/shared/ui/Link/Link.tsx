@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable no-unused-vars */
-import React from 'react';
+import { memo, ReactNode } from 'react';
 import { Link as RouterLink, LinkProps as RouterLinkProps } from 'react-router-dom';
 
 import { classNames } from '@/shared/lib/classNames';
@@ -15,9 +15,10 @@ export enum LinkTheme {
 interface LinkProps extends RouterLinkProps {
   className?: string;
   theme?: LinkTheme;
+  children?: ReactNode;
 }
 
-export const Link: React.FC<LinkProps> = (props) => {
+export const Link = memo((props: LinkProps) => {
   const {
     to,
     className,
@@ -35,4 +36,4 @@ export const Link: React.FC<LinkProps> = (props) => {
       {children}
     </RouterLink>
   );
-};
+});

@@ -1,14 +1,14 @@
-import React from 'react';
+import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import classes from '@/pages/NotFoundPage/ui/NotFoundPage.module.scss';
 import { classNames } from '@/shared/lib/classNames';
+import classes from './ProfilePage.module.scss';
 
 interface ProfilePageProps {
   className?: string;
 }
 
-const ProfilePage: React.FC<ProfilePageProps> = (props) => {
+const ProfilePage = memo((props: ProfilePageProps) => {
   const { className } = props;
 
   const { t } = useTranslation('profile');
@@ -20,6 +20,6 @@ const ProfilePage: React.FC<ProfilePageProps> = (props) => {
       {t('Профиль')}
     </div>
   );
-};
+});
 
 export default ProfilePage;

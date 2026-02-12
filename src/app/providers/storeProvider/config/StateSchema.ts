@@ -5,6 +5,7 @@ import { CombinedState } from 'redux';
 
 import { LoginSchema } from '@/features/AuthByUsername';
 import { CounterSchema } from '@/entities/Counter';
+import { IProfileSchema } from '@/entities/Profile';
 import { UserSchema } from '@/entities/User';
 
 export interface StateSchema {
@@ -13,6 +14,7 @@ export interface StateSchema {
 
   // Async reducers
   loginForm?: LoginSchema;
+  profile?: IProfileSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;

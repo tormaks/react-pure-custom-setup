@@ -24,7 +24,7 @@ export const Sidebar = memo((props: SidebarProps) => {
   return (
     <div
       data-testid="sidebar"
-      className={classNames(classes.component, { [classes.collapsed]: collapsed }, [className as string])}
+      className={classNames(classes.component, { [classes.collapsed]: collapsed }, [className])}
     >
       <Button
         square

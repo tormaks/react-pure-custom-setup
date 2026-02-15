@@ -9,7 +9,7 @@ interface LoaderProps {
 
 export const Loader = memo(({ className }: LoaderProps) => (
   <div
-    className={classNames('loader', {}, [className as string])}
+    className={classNames('loader', {}, [className])}
   >
     <div />
     <div />

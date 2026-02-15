@@ -21,7 +21,7 @@ export const PageError = memo((props: PageErrorProps) => {
 
   return (
     <div
-      className={classNames(classes.component, {}, [className as string])}
+      className={classNames(classes.component, {}, [className])}
     >
       <p>{t('Что-то пошло не так!')}</p>
       <Button onClick={reloadPage}>

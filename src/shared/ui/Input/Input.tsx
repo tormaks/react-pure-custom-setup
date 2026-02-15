@@ -28,7 +28,7 @@ export const Input = memo((props: InputProps) => {
 
   return (
     <div
-      className={classNames(classes.component, {}, [className as string])}
+      className={classNames(classes.component, {}, [className])}
     >
       <input
         type={type}

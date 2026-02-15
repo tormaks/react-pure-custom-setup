@@ -10,7 +10,7 @@ interface PageLoaderProps {
 
 export const PageLoader = memo(({ className }: PageLoaderProps) => (
   <div
-    className={classNames(classes.component, {}, [className as string])}
+    className={classNames(classes.component, {}, [className])}
   >
     <Loader />
   </div>

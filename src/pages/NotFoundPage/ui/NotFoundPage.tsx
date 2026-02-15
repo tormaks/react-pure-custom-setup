@@ -15,7 +15,7 @@ export const NotFoundPage = memo((props: NotFoundPageProps) => {
 
   return (
     <div
-      className={classNames(classes.component, {}, [className as string])}
+      className={classNames(classes.component, {}, [className])}
     >
       {t('Страница не найдена')}
     </div>

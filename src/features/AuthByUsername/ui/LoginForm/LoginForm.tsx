@@ -44,6 +44,7 @@ const LoginForm = memo((props: LoginFormProps) => {
   }, [dispatch]);
 
   const onClickLogin = useCallback(async () => {
+    // @ts-ignore
     const result = await dispatch(loginByUsername({ username, password }));
 
     if (result.meta.requestStatus === 'fulfilled') {
@@ -54,7 +55,7 @@ const LoginForm = memo((props: LoginFormProps) => {
   return (
     <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
       <div
-        className={classNames(classes.component, {}, [className as string])}
+        className={classNames(classes.component, {}, [className])}
       >
         <Text title={t('Авторизация')} />
         {error && <Text description={t('Неверный логин или пароль')} theme="error" /> }

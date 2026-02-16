@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-type Mods = Record<string, boolean | string | undefined | null>
+export type Mods = Record<string, boolean | string | undefined | null>
 
 export const classNames = (
   classes: string,

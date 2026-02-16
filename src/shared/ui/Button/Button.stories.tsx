@@ -44,18 +44,18 @@ Outline.args = {
   theme: 'outline',
 };
 
-export const OutlineSizeL = Template.bind({});
-OutlineSizeL.args = {
+export const OutlineSizeMedium = Template.bind({});
+OutlineSizeMedium.args = {
   children: 'Text',
   theme: 'outline',
-  size: 'L',
+  size: 'medium',
 };
 
-export const OutlineSizeXl = Template.bind({});
-OutlineSizeXl.args = {
+export const OutlineSizeLarge = Template.bind({});
+OutlineSizeLarge.args = {
   children: 'Text',
   theme: 'outline',
-  size: 'XL',
+  size: 'large',
 };
 
 export const OutlineDark = Template.bind({});
@@ -84,18 +84,18 @@ Square.args = {
   square: true,
 };
 
-export const SquareSizeL = Template.bind({});
-SquareSizeL.args = {
+export const SquareSizeMedium = Template.bind({});
+SquareSizeMedium.args = {
   children: '>',
   theme: 'backgroundInverted',
   square: true,
-  size: 'L',
+  size: 'medium',
 };
 
-export const SquareSizeXL = Template.bind({});
-SquareSizeXL.args = {
+export const SquareSizeLarge = Template.bind({});
+SquareSizeLarge.args = {
   children: '>',
   theme: 'backgroundInverted',
   square: true,
-  size: 'XL',
+  size: 'large',
 };

@@ -2,18 +2,12 @@
 /* eslint-disable no-unused-vars */
 import { ButtonHTMLAttributes, memo, ReactNode } from 'react';
 
-import { classNames } from '@/shared/lib/classNames';
+import { classNames, Mods } from '@/shared/lib/classNames';
 import classes from './Button.module.scss';
 
 type ButtonTheme = 'clear' | 'clearInverted' | 'outline' | 'background' | 'backgroundInverted';
 
-type ButtonSize = 'M' | 'L' | 'XL';
-
-export enum EButtonSize {
-  M = 'size_m',
-  L = 'size_l',
-  XL = 'size_xl'
-}
+type ButtonSize = 'small' | 'medium' | 'large';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>{
   className?: string;
@@ -28,16 +22,18 @@ export const Button = memo((props: ButtonProps) => {
   const {
     className,
     children,
-    theme,
+    theme = 'outline',
     square,
-    size = 'M',
+    size = 'small',
     disabled = false,
     ...otherProps
   } = props;
 
-  const mods: Record<string, boolean | undefined> = {
+  const mods: Mods = {
+    [classes[theme]]: theme,
     [classes.square]: square,
     [classes.disabled]: disabled,
+    [classes[size]]: true,
   };
 
   return (
@@ -45,15 +41,7 @@ export const Button = memo((props: ButtonProps) => {
       {...otherProps}
       type="button"
       disabled={disabled}
-      className={classNames(
-        classes.component,
-        mods,
-        [
-          className as string,
-          classes[theme as ButtonTheme],
-          classes[EButtonSize[size as ButtonSize]],
-        ],
-      )}
+      className={classNames(classes.component, mods, [className])}
     >
       {children}
     </button>

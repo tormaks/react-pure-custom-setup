@@ -23,7 +23,6 @@ const ProfilePage = memo((props: ProfilePageProps) => {
   const { t } = useTranslation('profile');
 
   useEffect(() => {
-    // @ts-ignore
     dispatch(fetchProfileData());
   }, [dispatch]);
 

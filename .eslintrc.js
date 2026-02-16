@@ -59,6 +59,7 @@ module.exports = {
     'react-hooks/rules-of-hooks': 'off',
     'react-hooks/exhaustive-deps': 'error',
     'no-param-reassign': 'off',
+    'no-undef': 'off',
     'import/order': ['error',
       {
         'newlines-between': 'always',

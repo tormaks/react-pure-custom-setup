@@ -6,7 +6,7 @@ import { AxiosInstance } from 'axios';
 import type { NavigateOptions } from 'react-router/dist/lib/context';
 import { CombinedState } from 'redux';
 
-import { LoginSchema } from '@/features/AuthByUsername';
+import { ILoginSchema } from '@/features/AuthByUsername';
 import { CounterSchema } from '@/entities/Counter';
 import { IProfileSchema } from '@/entities/Profile';
 import { UserSchema } from '@/entities/User';
@@ -16,7 +16,7 @@ export interface StateSchema {
   user: UserSchema;
 
   // Async reducers
-  loginForm?: LoginSchema;
+  loginForm?: ILoginSchema;
   profile?: IProfileSchema;
 }
 

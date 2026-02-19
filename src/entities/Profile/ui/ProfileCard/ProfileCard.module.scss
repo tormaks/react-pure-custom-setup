@@ -1,18 +1,15 @@
 .component {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
   padding: 20px;
   border: 1px solid var(--inverted-bg-color);
 }
 
-.header {
+.loading,
+.error {
   display: flex;
-  justify-content: space-between;
-}
-
-.data {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
 }

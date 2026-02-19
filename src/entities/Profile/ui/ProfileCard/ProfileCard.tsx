@@ -1,25 +1,23 @@
 import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
 
+import { IProfile } from '@/features/EditableProfileCard';
 import { classNames } from '@/shared/lib/classNames';
 import { Button } from '@/shared/ui/Button';
 import { Input } from '@/shared/ui/Input';
 import { Text } from '@/shared/ui/Text/Text';
-import { getProfileData } from '../../model/selectors/getProfileData';
-// import { getProfileError } from '../../model/selectors/getProfileError';
-// import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading';
 import classes from './ProfileCard.module.scss';
 
 interface ProfileCardProps {
   className?: string;
+  data?: IProfile;
+  isLoading: boolean;
+  error: string;
 }
 
 export const ProfileCard = (props: ProfileCardProps) => {
-  const { className } = props;
-
-  const data = useSelector(getProfileData);
-  // const isLoading = useSelector(getProfileIsLoading);
-  // const error = useSelector(getProfileError);
+  const {
+    className, data, isLoading, error,
+  } = props;
 
   const { t } = useTranslation('profile');
 

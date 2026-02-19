@@ -7,8 +7,8 @@ import type { NavigateOptions } from 'react-router/dist/lib/context';
 import { CombinedState } from 'redux';
 
 import { ILoginSchema } from '@/features/AuthByUsername';
+import { IProfileSchema } from '@/features/EditableProfileCard';
 import { CounterSchema } from '@/entities/Counter';
-import { IProfileSchema } from '@/entities/Profile';
 import { IUserSchema } from '@/entities/User';
 
 export interface StateSchema {

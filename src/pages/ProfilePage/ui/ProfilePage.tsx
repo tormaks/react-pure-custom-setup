@@ -2,7 +2,7 @@ import { memo, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { ReducersList } from '@/app/providers/storeProvider';
-import { fetchProfileData, profileReducer, ProfileCard } from '@/entities/Profile';
+import { EditableProfileCard, fetchProfileData, profileReducer } from '@/features/EditableProfileCard';
 import { classNames } from '@/shared/lib/classNames';
 import { DynamicModuleLoader } from '@/shared/lib/components/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
@@ -31,7 +31,7 @@ const ProfilePage = memo((props: ProfilePageProps) => {
       <div
         className={classNames(classes.component, {}, [className])}
       >
-        <ProfileCard />
+        <EditableProfileCard />
       </div>
     </DynamicModuleLoader>
   );

@@ -2,7 +2,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { Theme } from '@/app/providers/theme';
-import { IProfileSchema } from '@/entities/Profile';
+import { IProfileSchema } from '@/features/EditableProfileCard';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { Country, Currency } from '@/shared/constants';

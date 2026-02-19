@@ -12,11 +12,16 @@ interface ProfileCardProps {
   data?: IProfile;
   isLoading: boolean;
   error: string;
+  readonly?: boolean;
 }
 
 export const ProfileCard = (props: ProfileCardProps) => {
   const {
-    className, data, isLoading, error,
+    className,
+    data,
+    isLoading,
+    error,
+    readonly,
   } = props;
 
   const { t } = useTranslation('profile');
@@ -47,10 +52,12 @@ export const ProfileCard = (props: ProfileCardProps) => {
       className={classNames(classes.component, {}, [className])}
     >
       <Input
+        readonly={readonly}
         value={data?.first}
         placeholder={t('Ваше имя')}
       />
       <Input
+        readonly={readonly}
         value={data?.lastname}
         placeholder={t('Ваша фамилия')}
       />

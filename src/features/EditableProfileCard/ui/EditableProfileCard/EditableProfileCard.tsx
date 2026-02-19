@@ -8,12 +8,14 @@ import { Text } from '@/shared/ui/Text';
 import { getProfileData } from '../../model/selectors/getProfileData';
 import { getProfileError } from '../../model/selectors/getProfileError';
 import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading';
+import { getProfileReadonly } from '../../model/selectors/getProfileReadonly';
 import classes from './EditableProfileCard.module.scss';
 
 export const EditableProfileCard = () => {
   const data = useSelector(getProfileData);
   const isLoading = useSelector(getProfileIsLoading);
   const error = useSelector(getProfileError);
+  const readonly = useSelector(getProfileReadonly);
 
   const { t } = useTranslation('profile');
 
@@ -31,6 +33,7 @@ export const EditableProfileCard = () => {
         data={data}
         isLoading={isLoading}
         error={error}
+        readonly={readonly}
       />
     </div>
   );

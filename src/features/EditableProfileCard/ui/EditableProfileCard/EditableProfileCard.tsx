@@ -7,15 +7,15 @@ import { classNames } from '@/shared/lib/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { Button } from '@/shared/ui/Button';
 import { Text } from '@/shared/ui/Text';
-import { getProfileData } from '../../model/selectors/getProfileData';
 import { getProfileError } from '../../model/selectors/getProfileError';
+import { getProfileForm } from '../../model/selectors/getProfileForm';
 import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading';
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly';
 import { profileActions } from '../../model/slice/profileSlice';
 import classes from './EditableProfileCard.module.scss';
 
 export const EditableProfileCard = () => {
-  const data = useSelector(getProfileData);
+  const formData = useSelector(getProfileForm);
   const isLoading = useSelector(getProfileIsLoading);
   const error = useSelector(getProfileError);
   const readonly = useSelector(getProfileReadonly);
@@ -28,7 +28,15 @@ export const EditableProfileCard = () => {
   }, [dispatch]);
 
   const onCancelEdit = useCallback(() => {
-    dispatch(profileActions.setReadonly(true));
+    dispatch(profileActions.cancelEdit());
+  }, [dispatch]);
+
+  const onChangeFirstname = useCallback((value?: string) => {
+    dispatch(profileActions.updateProfile({ first: value }));
+  }, [dispatch]);
+
+  const onChangeLastname = useCallback((value?: string) => {
+    dispatch(profileActions.updateProfile({ lastname: value }));
   }, [dispatch]);
 
   return (
@@ -54,10 +62,12 @@ export const EditableProfileCard = () => {
         )}
       </div>
       <ProfileCard
-        data={data}
+        data={formData}
         isLoading={isLoading}
         error={error}
         readonly={readonly}
+        onChangeFirstname={onChangeFirstname}
+        onChangeLastname={onChangeLastname}
       />
     </div>
   );

@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 
-import { IProfile } from '@/features/EditableProfileCard';
+import { IProfile } from '@/features/EditableProfileCard'; // FIXME: FSD Error
 import { classNames } from '@/shared/lib/classNames';
 import { Input } from '@/shared/ui/Input';
 import { Loader } from '@/shared/ui/Loader';
@@ -13,6 +13,8 @@ interface ProfileCardProps {
   isLoading: boolean;
   error: string;
   readonly?: boolean;
+  onChangeFirstname: (value?: string) => void;
+  onChangeLastname: (value?: string) => void;
 }
 
 export const ProfileCard = (props: ProfileCardProps) => {
@@ -22,6 +24,8 @@ export const ProfileCard = (props: ProfileCardProps) => {
     isLoading,
     error,
     readonly,
+    onChangeFirstname,
+    onChangeLastname,
   } = props;
 
   const { t } = useTranslation('profile');
@@ -52,11 +56,13 @@ export const ProfileCard = (props: ProfileCardProps) => {
       className={classNames(classes.component, {}, [className])}
     >
       <Input
+        onChange={onChangeFirstname}
         readonly={readonly}
         value={data?.first}
         placeholder={t('Ваше имя')}
       />
       <Input
+        onChange={onChangeLastname}
         readonly={readonly}
         value={data?.lastname}
         placeholder={t('Ваша фамилия')}

@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next';
 
 import { IProfile } from '@/features/EditableProfileCard'; // FIXME: FSD Error
 import { classNames } from '@/shared/lib/classNames';
+import { Avatar } from '@/shared/ui/Avatar';
 import { Input } from '@/shared/ui/Input';
 import { Loader } from '@/shared/ui/Loader';
 import { Text } from '@/shared/ui/Text/Text';
@@ -13,10 +14,12 @@ interface ProfileCardProps {
   isLoading: boolean;
   error: string;
   readonly?: boolean;
-  onChangeFirstname: (value?: string) => void;
-  onChangeLastname: (value?: string) => void;
-  onChangeAge: (value?: string) => void;
-  onChangeCity: (value?: string) => void;
+  onChangeFirstname?: (value?: string) => void;
+  onChangeLastname?: (value?: string) => void;
+  onChangeAge?: (value?: string) => void;
+  onChangeCity?: (value?: string) => void;
+  onChangeUsername?: (value?: string) => void;
+  onChangeAvatar?: (value?: string) => void;
 }
 
 export const ProfileCard = (props: ProfileCardProps) => {
@@ -30,6 +33,8 @@ export const ProfileCard = (props: ProfileCardProps) => {
     onChangeLastname,
     onChangeAge,
     onChangeCity,
+    onChangeUsername,
+    onChangeAvatar,
   } = props;
 
   const { t } = useTranslation('profile');
@@ -59,6 +64,11 @@ export const ProfileCard = (props: ProfileCardProps) => {
     <div
       className={classNames(classes.component, {}, [className])}
     >
+      {data?.avatar && (
+        <div className={classes.avatarWrapper}>
+          <Avatar src={data?.avatar} size={120} />
+        </div>
+      )}
       <Input
         onChange={onChangeFirstname}
         readonly={readonly}
@@ -83,6 +93,18 @@ export const ProfileCard = (props: ProfileCardProps) => {
         readonly={readonly}
         value={data?.city}
         placeholder={t('Город')}
+      />
+      <Input
+        onChange={onChangeUsername}
+        readonly={readonly}
+        value={data?.username}
+        placeholder={t('Введите имя пользователя')}
+      />
+      <Input
+        onChange={onChangeAvatar}
+        readonly={readonly}
+        value={data?.avatar}
+        placeholder={t('Введите ссылку на аватар')}
       />
     </div>
   );

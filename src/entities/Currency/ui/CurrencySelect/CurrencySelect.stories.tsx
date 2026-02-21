@@ -1,0 +1,20 @@
+/* eslint-disable react/jsx-props-no-spreading */
+import { ComponentMeta, ComponentStory } from '@storybook/react';
+
+import { Currency } from '@/entities/Currency';
+import { CurrencySelect } from './CurrencySelect';
+
+export default {
+  title: 'entities/CurrencySelect',
+  component: CurrencySelect,
+  argTypes: {
+    backgroundColor: { control: 'color' },
+  },
+} as ComponentMeta<typeof CurrencySelect>;
+
+const Template: ComponentStory<typeof CurrencySelect> = (args) => <CurrencySelect {...args} />;
+
+export const Primary = Template.bind({});
+Primary.args = {
+  value: Currency.RUB,
+};

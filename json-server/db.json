@@ -22,7 +22,7 @@
     "first": "Иван123",
     "lastname": "Иванов",
     "age": 25,
-    "currency": "RUB",
+    "currency": "EUR",
     "country": "Russia",
     "city": "Moscow",
     "username": "admin",

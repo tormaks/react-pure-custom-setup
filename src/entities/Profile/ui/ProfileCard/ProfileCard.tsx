@@ -1,6 +1,8 @@
 import { useTranslation } from 'react-i18next';
 
 import { IProfile } from '@/features/EditableProfileCard'; // FIXME: FSD Error
+import { Currency, CurrencySelect } from '@/entities/Currency';
+import { Country } from '@/shared/constants';
 import { classNames } from '@/shared/lib/classNames';
 import { Avatar } from '@/shared/ui/Avatar';
 import { Input } from '@/shared/ui/Input';
@@ -20,6 +22,8 @@ interface ProfileCardProps {
   onChangeCity?: (value?: string) => void;
   onChangeUsername?: (value?: string) => void;
   onChangeAvatar?: (value?: string) => void;
+  onChangeCurrency?: (value: Currency) => void;
+  onChangeCountry?: (value: Country) => void;
 }
 
 export const ProfileCard = (props: ProfileCardProps) => {
@@ -35,6 +39,8 @@ export const ProfileCard = (props: ProfileCardProps) => {
     onChangeCity,
     onChangeUsername,
     onChangeAvatar,
+    onChangeCurrency,
+    onChangeCountry,
   } = props;
 
   const { t } = useTranslation('profile');
@@ -105,6 +111,11 @@ export const ProfileCard = (props: ProfileCardProps) => {
         readonly={readonly}
         value={data?.avatar}
         placeholder={t('Введите ссылку на аватар')}
+      />
+      <CurrencySelect
+        value={data?.currency}
+        onChange={onChangeCurrency}
+        readonly={readonly}
       />
     </div>
   );

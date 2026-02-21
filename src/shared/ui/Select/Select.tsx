@@ -1,4 +1,4 @@
-import { ChangeEvent, useMemo } from 'react';
+import { ChangeEvent, memo, useMemo } from 'react';
 
 import { classNames } from '../../lib/classNames';
 import classes from './Select.module.scss';
@@ -14,11 +14,12 @@ interface SelectProps {
   options?: SelectOption[];
   value?: string;
   onChange?: (value: string) => void;
+  readonly?: boolean;
 }
 
-export const Select = (props: SelectProps) => {
+export const Select = memo((props: SelectProps) => {
   const {
-    className, label, options, value, onChange,
+    className, label, options, value, onChange, readonly,
   } = props;
 
   const onChangeHandler = (e: ChangeEvent<HTMLSelectElement>) => {
@@ -48,6 +49,7 @@ export const Select = (props: SelectProps) => {
         </div>
       )}
       <select
+        disabled={readonly}
         value={value}
         onChange={onChangeHandler}
         className={classes.select}
@@ -56,4 +58,4 @@ export const Select = (props: SelectProps) => {
       </select>
     </div>
   );
-};
+});

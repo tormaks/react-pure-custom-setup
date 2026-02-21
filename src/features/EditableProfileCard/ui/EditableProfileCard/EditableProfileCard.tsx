@@ -11,6 +11,7 @@ import { getProfileError } from '../../model/selectors/getProfileError';
 import { getProfileForm } from '../../model/selectors/getProfileForm';
 import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading';
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly';
+import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
 import { profileActions } from '../../model/slice/profileSlice';
 import classes from './EditableProfileCard.module.scss';
 
@@ -32,8 +33,9 @@ export const EditableProfileCard = () => {
   }, [dispatch]);
 
   const onSave = useCallback(() => {
-
-  }, [dispatch]); //eslint-disable-line
+    dispatch(updateProfileData());
+    dispatch(profileActions.setReadonly(true));
+  }, [dispatch]);
 
   const onChangeFirstname = useCallback((value?: string) => {
     dispatch(profileActions.updateProfile({ first: value }));
@@ -59,6 +61,7 @@ export const EditableProfileCard = () => {
         <Text title={t('Профиль')} />
         {readonly ? (
           <Button
+            disabled={isLoading || Boolean(error)}
             theme="outline"
             onClick={onEdit}
           >

@@ -1,7 +1,15 @@
 {
   "posts": [
-    { "id": 1, "title": "a title", "views": 100 },
-    { "id": 2, "title": "another title", "views": 200 }
+    {
+      "id": 1,
+      "title": "a title",
+      "views": 100
+    },
+    {
+      "id": 2,
+      "title": "another title",
+      "views": 200
+    }
   ],
   "users": [
     {
@@ -11,7 +19,7 @@
     }
   ],
   "profile": {
-    "first": "Иван",
+    "first": "Иван123",
     "lastname": "Иванов",
     "age": 25,
     "currency": "RUB",

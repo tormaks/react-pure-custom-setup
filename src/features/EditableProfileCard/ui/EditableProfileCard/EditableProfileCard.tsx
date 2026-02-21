@@ -31,12 +31,24 @@ export const EditableProfileCard = () => {
     dispatch(profileActions.cancelEdit());
   }, [dispatch]);
 
+  const onSave = useCallback(() => {
+
+  }, [dispatch]); //eslint-disable-line
+
   const onChangeFirstname = useCallback((value?: string) => {
     dispatch(profileActions.updateProfile({ first: value }));
   }, [dispatch]);
 
   const onChangeLastname = useCallback((value?: string) => {
     dispatch(profileActions.updateProfile({ lastname: value }));
+  }, [dispatch]);
+
+  const onChangeAge = useCallback((value?: string) => {
+    dispatch(profileActions.updateProfile({ age: Number(value || 0) }));
+  }, [dispatch]);
+
+  const onChangeCity = useCallback((value?: string) => {
+    dispatch(profileActions.updateProfile({ city: value }));
   }, [dispatch]);
 
   return (
@@ -52,14 +64,23 @@ export const EditableProfileCard = () => {
           >
             {t('Редактировать')}
           </Button>
-        ) : (
-          <Button
-            theme="outline"
-            onClick={onCancelEdit}
-          >
-            {t('Отменить')}
-          </Button>
-        )}
+        )
+          : (
+            <div className={classes.editBtns}>
+              <Button
+                theme="outline_red"
+                onClick={onCancelEdit}
+              >
+                {t('Отменить')}
+              </Button>
+              <Button
+                theme="outline"
+                onClick={onSave}
+              >
+                {t('Сохранить')}
+              </Button>
+            </div>
+          )}
       </div>
       <ProfileCard
         data={formData}
@@ -68,6 +89,8 @@ export const EditableProfileCard = () => {
         readonly={readonly}
         onChangeFirstname={onChangeFirstname}
         onChangeLastname={onChangeLastname}
+        onChangeAge={onChangeAge}
+        onChangeCity={onChangeCity}
       />
     </div>
   );

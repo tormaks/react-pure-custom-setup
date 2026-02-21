@@ -3,10 +3,10 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { Theme } from '@/app/providers/theme';
 import { IProfileSchema } from '@/features/EditableProfileCard';
+import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
-import { Country } from '@/shared/constants';
 import ProfilePage from './ProfilePage';
 
 const defaultProfileSchema: IProfileSchema = {

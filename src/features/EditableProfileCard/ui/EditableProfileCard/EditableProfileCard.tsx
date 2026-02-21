@@ -2,6 +2,7 @@ import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
+import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
 import { ProfileCard } from '@/entities/Profile';
 import { classNames } from '@/shared/lib/classNames';
@@ -66,6 +67,10 @@ export const EditableProfileCard = () => {
     dispatch(profileActions.updateProfile({ currency: value }));
   }, [dispatch]);
 
+  const onChangeCountry = useCallback((value?: Country) => {
+    dispatch(profileActions.updateProfile({ country: value }));
+  }, [dispatch]);
+
   return (
     <div
       className={classNames(classes.component, {}, [])}
@@ -110,6 +115,7 @@ export const EditableProfileCard = () => {
         onChangeUsername={onChangeUsername}
         onChangeAvatar={onChangeAvatar}
         onChangeCurrency={onChangeCurrency}
+        onChangeCountry={onChangeCountry}
       />
     </div>
   );

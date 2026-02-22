@@ -9,6 +9,7 @@ export interface ISidebarItem {
   text: string;
   path: string;
   Icon: VFC<SVGProps<SVGSVGElement>>;
+  authOnly?: boolean;
 }
 
 export const sidebarItems: ISidebarItem[] = [
@@ -26,5 +27,6 @@ export const sidebarItems: ISidebarItem[] = [
     text: 'Профиль',
     path: RoutePath.profile,
     Icon: ProfileIcon,
+    authOnly: true,
   },
 ];

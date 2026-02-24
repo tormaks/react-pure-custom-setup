@@ -13,8 +13,10 @@ import { getProfileError } from '../../model/selectors/getProfileError';
 import { getProfileForm } from '../../model/selectors/getProfileForm';
 import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading';
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly';
+import { getProfileValidateErrors } from '../../model/selectors/getProfileValidateErrors';
 import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
 import { profileActions } from '../../model/slice/profileSlice';
+import { ValidateProfileError } from '../../model/types/profile';
 import classes from './EditableProfileCard.module.scss';
 
 export const EditableProfileCard = () => {
@@ -22,9 +24,18 @@ export const EditableProfileCard = () => {
   const isLoading = useSelector(getProfileIsLoading);
   const error = useSelector(getProfileError);
   const readonly = useSelector(getProfileReadonly);
+  const validateErrors = useSelector(getProfileValidateErrors);
 
   const { t } = useTranslation('profile');
   const dispatch = useAppDispatch();
+
+  const translateValidateErrors = {
+    [ValidateProfileError.INCORRECT_USER_DATA]: t('Имя и фамилия обязательны'),
+    [ValidateProfileError.INCORRECT_AGE]: t('Некорректный возраст'),
+    [ValidateProfileError.INCORRECT_USERNAME]: t('Некорректный логин'),
+    [ValidateProfileError.NO_DATA]: t('Данные не указаны'),
+    [ValidateProfileError.NO_SERVER_ERROR]: t('Ошибка сервера'),
+  };
 
   const onEdit = useCallback(() => {
     dispatch(profileActions.setReadonly(false));
@@ -36,7 +47,6 @@ export const EditableProfileCard = () => {
 
   const onSave = useCallback(() => {
     dispatch(updateProfileData());
-    dispatch(profileActions.setReadonly(true));
   }, [dispatch]);
 
   const onChangeFirstname = useCallback((value?: string) => {
@@ -103,6 +113,13 @@ export const EditableProfileCard = () => {
             </div>
           )}
       </div>
+      {validateErrors?.length && validateErrors.map((error) => (
+        <Text
+          key={error}
+          theme="error"
+          title={translateValidateErrors[error]}
+        />
+      ))}
       <ProfileCard
         data={formData}
         isLoading={isLoading}

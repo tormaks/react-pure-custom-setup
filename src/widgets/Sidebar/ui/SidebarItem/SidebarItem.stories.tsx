@@ -2,6 +2,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { Theme } from '@/app/providers/theme';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { SidebarItem } from './SidebarItem';
 import { sidebarItems } from '../../model';
@@ -21,23 +22,25 @@ Light.args = {
   item: sidebarItems[0],
   collapsed: false,
 };
+Light.decorators = [StoreDecorator({})];
 
 export const LightCollapsed = Template.bind({});
 LightCollapsed.args = {
   item: sidebarItems[1],
   collapsed: true,
 };
+LightCollapsed.decorators = [StoreDecorator({})];
 
 export const Dark = Template.bind({});
 Dark.args = {
   item: sidebarItems[1],
   collapsed: false,
 };
-Dark.decorators = [ThemeDecorator(Theme.DARK)];
+Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({})];
 
 export const DarkCollapsed = Template.bind({});
 DarkCollapsed.args = {
-  item: sidebarItems[2],
+  item: sidebarItems[1],
   collapsed: true,
 };
-Dark.decorators = [ThemeDecorator(Theme.DARK)];
+DarkCollapsed.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({})];

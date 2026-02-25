@@ -23,7 +23,9 @@ const ProfilePage = memo((props: ProfilePageProps) => {
   const { t } = useTranslation('profile');
 
   useEffect(() => {
-    dispatch(fetchProfileData());
+    if (__PROJECT__ !== 'storybook') {
+      dispatch(fetchProfileData());
+    }
   }, [dispatch]);
 
   return (

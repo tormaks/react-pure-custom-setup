@@ -5,12 +5,13 @@ import { Theme } from '@/app/providers/theme';
 import { IProfileSchema } from '@/features/EditableProfileCard';
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
+import avatar from '@/shared/assets/tests/avatar.jpeg';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import ProfilePage from './ProfilePage';
 
 const defaultProfileSchema: IProfileSchema = {
-  data: {
+  form: {
     first: 'Иван',
     lastname: 'Иванов',
     age: 25,
@@ -18,7 +19,7 @@ const defaultProfileSchema: IProfileSchema = {
     country: Country.Russia,
     city: 'Moscow',
     username: 'admin',
-    avatar: 'https://habrastorage.org/web/d18/55d/17d/d1855d17df684fa19c6cb1bbf546d49d.jpg',
+    avatar,
   },
   isLoading: false,
   error: undefined,

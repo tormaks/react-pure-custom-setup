@@ -1,7 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import avatar from '@/shared/assets/tests/avatar.jpeg';
 import { ProfileCard } from './ProfileCard';
 import { Country } from '../../../Country';
 import { Currency } from '../../../Currency';
@@ -26,7 +25,7 @@ Primary.args = {
     country: Country.Russia,
     city: 'Moscow',
     username: 'admin',
-    avatar,
+    avatar: 'https://i.ibb.co/DHGRjZQ4/storybook.jpg',
   },
 };
 

@@ -5,7 +5,6 @@ import { Theme } from '@/app/providers/theme';
 import { IProfileSchema } from '@/features/EditableProfileCard';
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
-import avatar from '@/shared/assets/tests/avatar.jpeg';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import ProfilePage from './ProfilePage';
@@ -19,7 +18,7 @@ const defaultProfileSchema: IProfileSchema = {
     country: Country.Russia,
     city: 'Moscow',
     username: 'admin',
-    avatar,
+    avatar: 'https://i.ibb.co/DHGRjZQ4/storybook.jpg',
   },
   isLoading: false,
   error: undefined,

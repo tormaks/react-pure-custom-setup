@@ -13,7 +13,7 @@ import classes from './ProfileCard.module.scss';
 interface ProfileCardProps {
   className?: string;
   data?: IProfile;
-  isLoading: boolean;
+  isLoading?: boolean;
   error: string;
   readonly?: boolean;
   onChangeFirstname?: (value?: string) => void;

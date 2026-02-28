@@ -14,6 +14,7 @@ const defaultProfileSchema = {
     country: Country.Russia,
     city: 'Moscow',
     username: 'admin',
+    avatar: 'https://i.ibb.co/DHGRjZQ4/storybook.jpg',
   },
 };
 

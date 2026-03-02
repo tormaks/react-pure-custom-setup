@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import { ChangeEvent, InputHTMLAttributes, memo } from 'react';
 
 import { classNames, Mods } from '@/shared/lib/classNames';

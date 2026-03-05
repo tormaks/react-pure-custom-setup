@@ -8,11 +8,11 @@ import { CombinedState } from 'redux';
 
 import { ILoginSchema } from '@/features/AuthByUsername';
 import { IProfileSchema } from '@/features/EditableProfileCard';
-import { CounterSchema } from '@/entities/Counter';
+import { ICounterSchema } from '@/entities/Counter';
 import { IUserSchema } from '@/entities/User';
 
 export interface StateSchema {
-  counter: CounterSchema;
+  counter: ICounterSchema;
   user: IUserSchema;
 
   // Async reducers
